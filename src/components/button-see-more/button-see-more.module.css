@@ -1,0 +1,6 @@
+.button {
+    padding: 1rem;
+    display: flex;
+    margin: 0 auto;
+    cursor: pointer;
+}

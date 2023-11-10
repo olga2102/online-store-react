@@ -5,12 +5,14 @@ import Root from "./Root";
 import Main from "../pages/main";
 import Login from "../pages/login";
 import Catalog from "../pages/catalog";
+import ErrorPage from "../pages/error-page";
+import ProductPage from "../pages/product-page";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
-      errorElement: <div>ERROR 404</div>,
+      errorElement: <ErrorPage />,
       children: [
         {
           path: "/",
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
         {
             path: "/catalog",
             element: <Catalog />
-        }
+        },
+        {
+          path: "/catalog/:productId",
+          element: <ProductPage />,
+        },
     ]
     }
   ]);

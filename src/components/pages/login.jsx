@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import LoginForm from "../login-form/login-form";
+
 function Login() {
 
     const [valueName, setValueName] = useState('');
@@ -48,11 +50,7 @@ function Login() {
 
         <>
             <h1>LogIn</h1>
-            <form onSubmit={sendData}>
-                <input type="text" placeholder="Your name" value={valueName} onChange={changeValueName}/>
-                <input type="text" placeholder="Your password" value={valuePassword} onChange={changeValuePassword}/>
-                <button type="submit">LogIn</button>
-            </form>
+            <LoginForm sendData={sendData} valueName={valueName} changeValueName={changeValueName} valuePassword={valuePassword} changeValuePassword={changeValuePassword} />
             {error ? <div>Login or password is incorrect</div> : ''}
         </>
     )

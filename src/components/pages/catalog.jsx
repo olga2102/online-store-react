@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Catalog() {
+import CatalogList from "../catalog-list/catalog-list";
+import ButtonSeeMore from "../button-see-more/button-see-more";
 
+function Catalog() {
     const [catalog, setCatalog] = useState([]);
+
     const [offset, setOffset] = useState(0);
     const [count, setCount] = useState(0);
     const [total, setTotal] = useState(0);
-    const [loader, setLoader] = useState(false)
 
-    function getCatatalog(offset=0, count=10) {
+    const [loader, setLoader] = useState(false);
+
+    function getCatatalog(offset=0, count=12) {
         setLoader(true);
         axios.get(`http://localhost:3000/api/catalog?count=${count}&offset=${offset}`, {
             headers: {
@@ -22,14 +26,12 @@ function Catalog() {
                 setTotal(response.data.total);
             })
             .catch(function (error) {
-                // handle error
                 console.log(error);
             })
             .finally(function () {
                 setLoader(false);
             });
     }
-    ///
 
     useEffect(()=>{
         getCatatalog();
@@ -42,17 +44,11 @@ function Catalog() {
 
     return (
         <>
-        <h1>Catalog</h1> 
-            <ul>
-                {
-                    catalog.map(item=> {
-                        return <li key={item.id}>{item.title}</li>
-                    })
-                }
-            </ul>
+            <h1>Catalog</h1> 
+           <CatalogList catalog={catalog} />
             {loader ? <p>Loading...</p> : "" }
             { (offset + count < total) && !loader  ? 
-            <button onClick={downloadMore}>See more</button> : '' }
+            <ButtonSeeMore downloadMore={downloadMore} /> : '' }
         </>
     )
 }

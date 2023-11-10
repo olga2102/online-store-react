@@ -1,0 +1,11 @@
+.wrapper {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button {
+    padding: 1rem;
+    cursor: pointer;
+}
