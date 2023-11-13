@@ -7,6 +7,7 @@ import Login from "../pages/login";
 import Catalog from "../pages/catalog";
 import ErrorPage from "../pages/error-page";
 import ProductPage from "../pages/product-page";
+import Basket from "../pages/basket-page";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
           path: "/catalog/:productId",
           element: <ProductPage />,
         },
+        {
+          path: "/basket",
+          element: <Basket />
+      },
     ]
     }
   ]);

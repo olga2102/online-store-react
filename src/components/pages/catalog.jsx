@@ -3,6 +3,7 @@ import axios from "axios";
 
 import CatalogList from "../catalog-list/catalog-list";
 import ButtonSeeMore from "../button-see-more/button-see-more";
+import Loader from "../loader/loader";
 
 function Catalog() {
     const [catalog, setCatalog] = useState([]);
@@ -46,7 +47,7 @@ function Catalog() {
         <>
             <h1>Catalog</h1> 
            <CatalogList catalog={catalog} />
-            {loader ? <p>Loading...</p> : "" }
+            {loader ? <Loader /> : "" }
             { (offset + count < total) && !loader  ? 
             <ButtonSeeMore downloadMore={downloadMore} /> : '' }
         </>

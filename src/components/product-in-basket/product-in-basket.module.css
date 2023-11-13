@@ -1,0 +1,58 @@
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.item {
+    padding: 1rem;
+    display: flex;
+    border: 1px solid #012f66;
+    border-bottom: none;
+}
+
+.item:last-child {
+    border-bottom: 1px solid #012f66;
+}
+
+.header {
+    padding: 1rem;
+    display: flex;
+    border: 1px solid #012f66;
+    border-bottom: none;
+    background-color: #eee;
+    font-weight: bold;
+}
+
+.column {
+    flex: 0 0 20%;
+}
+
+.name {
+    flex: 1;
+}
+
+.title {
+    flex: 1;
+}
+
+.quantity {
+    flex: 0 0 20%;
+}
+
+.price {
+    flex: 0 0 20%;
+}
+
+.trash {
+    cursor: pointer;
+    flex: 0 0 5%;
+}
+
+.empty {
+    flex: 0 0 5%;
+}
+
+.total {
+    flex: 0 0 20%;
+}
