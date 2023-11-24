@@ -1,6 +1,7 @@
 .list {
     padding: 0;
     margin: 0;
+    margin-bottom: 1.5rem;
     list-style: none;
 }
 
@@ -77,3 +78,8 @@
     margin: 0;
     flex: 0 0 25%;
 }
+
+.pay {
+    font-weight: bold;
+}
+

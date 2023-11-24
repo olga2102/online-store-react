@@ -8,7 +8,7 @@ function Header() {
         <header>
             <div className="container">
                 <div className={styles.wrapper}>
-                    <a className={styles.logo} href="#">LOGO</a>
+                    <Link to="/" className={styles.logo} href="#">LOGO</Link>
                     <nav>
                         <ul className={styles.nav}>
                             <li>

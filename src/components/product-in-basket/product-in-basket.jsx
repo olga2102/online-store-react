@@ -32,7 +32,7 @@ function ProductInBasket() {
     }
 
     return (
-        <>
+        <div className={styles.wrapper}>
 
             <div className={styles.header}>
                 <p className={styles.name}>Name</p>
@@ -67,7 +67,12 @@ function ProductInBasket() {
                 })
             }
             </ul>
-        </>
+            <div className={styles.pay}>To pay: 
+                <span>
+                {productsInBasket.reduce((sum, current)=> sum + writeTotal(current.count, current.price), 0)}
+                $</span>
+            </div>
+        </div>
     )
 }
 

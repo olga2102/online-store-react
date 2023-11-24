@@ -1,0 +1,22 @@
+.item {
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid grey;
+    /* transform: translateX(calc(100% + 2rem) ); */
+    transition: .3s linear;
+}
+
+/* .item.active {
+    transform: translateX(0);
+} */
+
+.delete {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid grey;
+}

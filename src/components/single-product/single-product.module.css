@@ -1,4 +1,4 @@
-.wrapper {
+.inner {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -8,4 +8,8 @@
 .button {
     padding: 1rem;
     cursor: pointer;
+}
+
+.wrapper {
+    position: relative;
 }
