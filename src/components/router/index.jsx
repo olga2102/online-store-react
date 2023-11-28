@@ -4,6 +4,7 @@ import Root from "./Root";
 
 import Main from "../pages/main";
 import Login from "../pages/login";
+import Logout from "../pages/logout";
 import Catalog from "../pages/catalog";
 import ErrorPage from "../pages/error-page";
 import ProductPage from "../pages/product-page";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             path: "/login",
             element: <Login />
         },
+        {
+          path: "/logout",
+          element: <Logout />
+      },
         {
             path: "/catalog",
             element: <Catalog />

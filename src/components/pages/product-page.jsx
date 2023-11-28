@@ -10,7 +10,7 @@ function ProductPage() {
 
     const [loader, setLoader] = useState(false);
 
-    const postUrl = `http://localhost:3000/api/catalog/${productId}`;
+    const postUrl = `http://localhost:${document.location.port}/api/catalog/${productId}`;
     const [product, setProduct] = useState('');
 
     useEffect(()=>{

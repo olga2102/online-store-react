@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 function GetSavedProducts() {
   const savedProducts = localStorage.getItem("products");
 
-  if(savedProducts.length) return JSON.parse(savedProducts);
+  if(savedProducts) return JSON.parse(savedProducts);
 
   return [];
 }

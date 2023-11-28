@@ -2,9 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 
 import LoginForm from "../login-form/login-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeAuth } from "../../store/authSlice";
 
 function Login() {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [valueName, setValueName] = useState('');
     const [valuePassword, setValuePassword] = useState('');
     const [error, setError] = useState(false);
@@ -24,7 +29,7 @@ function Login() {
         
         if (error) return;
 
-        axios.post('http://localhost:3000/api/auth', {
+        axios.post(`http://localhost:${document.location.port}/api/auth`, {
             nickname: valueName,
             password: valuePassword
           }, {
@@ -36,13 +41,16 @@ function Login() {
             console.log(response);
             if(response.data.token) {
                 localStorage.setItem('token', response.data.token);
+                dispatch(changeAuth(true));
+                navigate('/catalog');
             } else {
                 setError(true);
             }
           })
           .catch(function (error) {
             console.log(error);
-            setError(true)
+            setError(true);
+            dispatch(changeAuth(false));
           });
     }
 
@@ -50,7 +58,7 @@ function Login() {
 
         <>
             <h1>LogIn</h1>
-            <LoginForm sendData={sendData} valueName={valueName} changeValueName={changeValueName} valuePassword={valuePassword} changeValuePassword={changeValuePassword} />
+            <LoginForm sendData={(e) => sendData(e)} valueName={valueName} changeValueName={changeValueName} valuePassword={valuePassword} changeValuePassword={changeValuePassword} />
             {error ? <div>Login or password is incorrect</div> : ''}
         </>
     )
